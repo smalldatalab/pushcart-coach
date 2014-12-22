@@ -1,0 +1,147 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app='pushcartCoach'>
+  <head>
+      <base href="/">
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+      <title>Pushcart Coach Dashboard</title>
+      <!-- build:css({.tmp,src}) styles/vendor.css -->
+      <link rel="stylesheet" href="app/vendor.css">
+      <!-- bower:css -->
+      <link rel="stylesheet" href="../bower_components/morris/morris.css" />
+      <link rel="stylesheet" href="../bower_components/foundation-icon-fonts/foundation-icons.css" />
+      <!-- endbower -->
+      <!-- endbuild -->
+      
+
+      <!-- build:css({.tmp,src}) styles/app.css -->
+      <!-- inject:css -->
+      <link rel="stylesheet" href="app/index.css">
+      <!-- endinject -->
+      <!-- endbuild -->
+
+      <!-- build:js scripts/modernizr.js -->
+      <script src="../bower_components/modernizr/modernizr.js"></script>
+      <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="row full-width wrapper">
+        <div class="large-12 columns content-bg">
+            <div id="top-menu">
+                <div class="row">
+                    <div class="large-2 medium-4 small-12 columns top-part-no-padding">
+                        <div class="logo-bg">
+                            <img src="assets/images/logo.png" alt="logo" style="padding:5px;"/>
+                            <i class="fi-list toggles" data-toggle="hide"></i>
+                        </div>
+                    </div>
+                    <div class="large-10 medium-8 small-12 columns top-menu">
+                        <div class="row">
+                            <div class="large-6 medium-6 small-12 columns">
+                                <div class="row">
+                                    <div class="large-8 columns">
+<!--                                         <input id="Text1" type="text" class="search-text" placeholder="Search" /> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="large-4 medium-6 small-12 columns text-center">
+                                <div class="row">
+                                    <div class="medium-3 small-3 columns">
+                                        <div class="notification">
+                                            <!-- <i class="fi-mail"></i> -->
+                                            <!-- <span class="mail">4</span> -->
+                                        </div>
+                                    </div>
+                                    <div class="medium-3 small-3 columns">
+                                        <div class="notification">
+<!--                                             <i class="fi-megaphone"></i>
+                                            <span class="megaphone">5</span> -->
+                                        </div>
+                                    </div>
+                                    <div class="medium-3 small-3 columns">
+                                      <oauth
+                                        site="http://sandbox.gopushcart.com/api/v1"
+                                        client-id="f597b92254676f89cc5dd99789af6f0d57603912bba2b63a50a3078f9c601265"
+                                        redirect-uri="http://localhost:3000"
+                                        scope="public"
+                                        template='app/directives/oauth.html'
+                                      ></oauth>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+          <ui-view></ui-view>
+        </div>
+    </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/raphael/raphael.js"></script>
+    <script src="../bower_components/morris/morris.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src="../bower_components/restangular/dist/restangular.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="../bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="../bower_components/jquery-placeholder/jquery.placeholder.js"></script>
+    <script src="../bower_components/angular-foundation/mm-foundation-tpls.js"></script>
+    <script src="../bower_components/angular-ui-utils/ui-utils.js"></script>
+    <script src="../bower_components/ngstorage/ngStorage.js"></script>
+    <script src="../bower_components/oauth-ng/dist/oauth-ng.js"></script>
+    <script src="../bower_components/angular-filter/dist/angular-filter.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,src}) scripts/app.js -->
+    <!-- inject:js -->
+    <script src="app/blocks/routes/routes.module.js"></script>
+    <script src="app/blocks/routes/routes.js"></script>
+    <script src="app/swap/swap.module.js"></script>
+    <script src="app/swap/swap.js"></script>
+    <script src="app/member/member.module.js"></script>
+    <script src="app/member/member.js"></script>
+    <script src="app/layout/layout.module.js"></script>
+    <script src="app/layout/sidebar.js"></script>
+    <script src="app/item/item.module.js"></script>
+    <script src="app/item/item.js"></script>
+    <script src="app/directives/directives.module.js"></script>
+    <script src="app/directives/weeklyPurchaseChart.js"></script>
+    <script src="app/directives/sideNav.js"></script>
+    <script src="app/directives/itemsList.js"></script>
+    <script src="app/dashboard/dashboard.module.js"></script>
+    <script src="app/dashboard/dashboard.js"></script>
+    <script src="app/core/core.module.js"></script>
+    <script src="app/core/dataservice.js"></script>
+    <script src="app/core/config.js"></script>
+    <script src="app/app.module.js"></script>
+    <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- angular templates will be automaticaly converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+
+  </body>
+</html>

@@ -1,0 +1,31 @@
+﻿<div class="no-padding">
+  <div class="large-2 medium-12 small-12 columns">
+    <ul class="side-nav">
+      <li ng-if="member">
+        <div class="staff-detail">
+          <div class="staff-info">
+            <h2>{{member.name}}</h2>
+            <div>
+              <b>Household size:</b> {{member.household_size}}
+            </div>
+            <div>
+              <b>Mission:</b> {{member.mission}}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="dashboard">
+          <i class="fi-home" style="font-size:2em;padding:0 15px;"></i>
+          Dashboard
+        </a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="swap">
+          <i class="fi-like" style="font-size:2em;padding:0 15px;"></i>
+          Swaps
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

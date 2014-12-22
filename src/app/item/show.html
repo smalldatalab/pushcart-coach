@@ -1,0 +1,102 @@
+﻿<div class="large-12 columns">
+  <div class="row">
+    <div class="large-11 small-centered columns">
+      <div class="custom-panel blue-bg">
+        <div class="custom-panel-body">
+          <h4>{{item.name}}</h4>
+          <table class="width-100 custom-table responsive">
+            <tr>
+              <td style="padding:0;">
+                Description
+              </td>
+              <td style="padding:0 10px; text-align:left;">
+                <b>{{item.description}}</b>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0;">
+                Vendor Category
+              </td>
+              <td style="padding:0 10px; text-align:left;">
+                <b>{{item.category}}</b>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0;">
+                Pushcart Category
+              </td>
+              <td style="padding:0 10px; text-align:left;">
+                <b>{{item.filtered_category}}</b>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0;">
+                Unit Price
+              </td>
+              <td style="padding:0 10px; text-align:left;">
+                <b>{{item.price_breakdown}}</b>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0;">
+                Quantity
+              </td>
+              <td style="padding:0 10px; text-align:left;">
+                <b>{{item.quantity}}</b>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0;">
+                Total Price
+              </td>
+              <td style="padding:0 10px; text-align:left;">
+                <b>{{item.total_price}}</b>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0;">
+                Sale?
+              </td>
+              <td style="padding:0 10px; text-align:left;">
+                <b>{{item.discounted}}</b>
+              </td>
+            </tr>
+            <tr ng-repeat="(key, value) in item.nutritional_data">
+              <td style="padding:0;">
+                {{key}}
+              </td>
+              <td style="padding:0 10px; text-align:left;">
+                <b>{{value}}</b>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="custom-panel">
+        <div class="custom-panel-heading">
+          <h4>Suggest a swap for this item!</h4>
+        </div>
+        <div class="custom-panel-body">
+          <form name="swapSuggestionForm">
+            <label>Swap</label>
+            <select ng-options="swap.id as swap.name for swap in swaps" ng-model="swapSuggestion.swap_id" required>
+            <input type="submit" ng-click="createSwapSuggestion(swapSuggestion)" value="Save" class="button tiny radius coral-bg right"/>
+          </form>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+
+      <div class="large-12 columns" ng-if="item.swaps.length">
+        <h5>Swaps Suggested</h5>
+        <ul>
+          <li ng-repeat="swap in item.swaps">
+            {{swap.name}}
+          </li>
+        <ul>
+      </div>
+
+    </div>
+  </div>
+
+</div>

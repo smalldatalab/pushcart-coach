@@ -1,0 +1,78 @@
+﻿<div class="row">
+    <side-nav></side-nav>
+
+    <div class="large-10 columns">
+      <div class="large-6 small-centered columns">
+        <div class="custom-panel">
+          <div class="custom-panel-heading">
+            <h4>Create a new swap item</h4>
+          </div>
+          <div class="custom-panel-body">
+            <form name="swapForm">
+              <label>Name</label>
+              <input type="text" name="name" ng-model="newSwap.name" required>
+              <label>Category</label>
+              <select ng-options="category.id as category.name for category in swapCategories" ng-model="newSwap.swap_category_id" required>
+              <input type="submit" ng-click="createSwap(newSwap)" value="Save" class="button tiny radius coral-bg right"/>
+            </form>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="large-6 columns">
+        <div class="custom-panel">
+          <div class="custom-panel-heading">
+            <h4>To Do</h4>
+          </div>
+          <div class="custom-panel-body">
+              <input id="new-todo" type="text" placeholder="What needs to be done?">
+              <ul id="todo-list">
+                 
+              </ul>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="large-10 columns">
+      <div id="inbox">
+          <div class="row">
+              <div class="large-11 small-centered columns">
+                  <div class="custom-panel blue-bg">
+                      <div class="custom-panel-heading" style="padding: 10px;">
+                          <div class="row">
+                              <div class="large-6 columns text-center">
+                                  <div class="row">
+                                      <div class="large-3 medium-3 small-3 columns">
+                                          <span>Swaps List</span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="custom-panel-body">
+                          <br />
+                          <table class="width-100 custom-table responsive">
+                            <tr ng-repeat="swap in swaps">
+                              <td>
+                                {{ swap.name }}
+                              </td>
+                              <td>
+                                {{ swap.swap_category.name }}
+                              </td>
+                              <td>
+                                <b>Vendor links:</b>
+                                <a href="{{ swap.freshdirect_link }}" target="_blank">FreshDirect</a>,
+                                <a href="{{ swap.peapod_link }}" target="_blank">Peapod</a>,
+                                <a href="{{ swap.instacart_link }}" target="_blank">Instacart</a>
+                              </td>
+                            </tr>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+</div>

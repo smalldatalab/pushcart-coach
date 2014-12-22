@@ -1,0 +1,105 @@
+﻿<div class="row">
+  <side-nav member="member"></side-nav>
+
+  <div class="large-10 columns">
+    <div class="large-12 columns">
+      <div class="custom-panel">
+        <div class="custom-panel-heading">
+          <h4>Weekly Purchases</h4>
+        </div>
+        <div class="custom-panel-body">
+          <weekly-purchase-chart purchases="member.purchases" suggestions="swapSuggestions"></weekly-purchase-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="large-10 columns">
+    <div class="large-3 medium-6 small-12 columns">
+        <div class="stats border">
+            <div class="left">
+                Purchases
+                <h3>{{member.purchases_count}}</h3>
+            </div>
+            <i class="fi-shopping-cart right orders"></i>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="large-3 medium-6 small-12 columns">
+        <div class="stats border">
+            <div class="left">
+                Last Purchase
+                <h3>{{ member.last_purchase_date | date:'shortDate' }}</h3>
+            </div>
+            <i class="fi-calendar right user"></i>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="large-3 medium-6 small-12 columns">
+      <div class="stats border">
+        <div class="left">
+          Swaps Suggested
+          <h3>{{ swapSuggestions.length }}</h3>
+        </div>
+        <i class="fi-like right sales"></i>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="large-3 medium-6 small-12 columns">
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div id="inbox">
+      <div class="row">
+          <div class="large-11 small-centered columns">
+              <div class="custom-panel blue-bg">
+                  <div class="custom-panel-heading" style="padding: 10px;">
+                      <div class="row">
+                          <div class="large-6 columns text-center">
+                              <div class="row">
+                                  <div class="large-3 medium-3 small-3 columns">
+                                      <span>Purchases</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="custom-panel-body">
+                      <br />
+                      <table class="width-100 custom-table responsive">
+                        <tr ng-repeat-start="purchase in member.purchases">
+                          <td>
+                            {{ purchase.purchase_date | date:'medium' }}
+                          </td>
+                          <td>
+                            {{ purchase.vendor }}
+                          </td>
+                          <td>
+                            {{ purchase.total_price | currency }}
+                          </td>
+                          <td>
+                            <a ng-click="purchase.showItems = !purchase.showItems" class="button">
+                              {{ purchase.items.length || 0 }} Items
+                            </a>
+                          </td>
+                        </tr>
+                        <tr ng-show="purchase.showItems" ng-repeat-end>
+                          <td style='width:35%'>
+                            <items-list itemslist="purchase.items" member="member"></items-list>
+                          </td>
+                          <td style='width:65%' colspan="3">
+                            <ui-view></ui-view>
+                          </td>
+                        </tr>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
