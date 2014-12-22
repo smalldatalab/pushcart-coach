@@ -143,3 +143,8 @@ gulp.task('clean', function (done) {
 });
 
 gulp.task('build', ['html', 'images', 'fonts', 'misc']);
+
+gulp.task('ghpages', function () {
+  return gulp.src('./dist/**/*')
+    .pipe($.ghPages());
+});
