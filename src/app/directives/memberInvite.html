@@ -1,0 +1,4 @@
+﻿<form name='member_invite'>
+  <input ng-model="inviteEmail" ng-required=true type='text' placeholder="Enter email" ui-keypress="{ 13: 'inviteMember()'}"></input>
+  <div style="font-size:10px;" ng-class="responseMessage.error ? 'red' : 'blue'">{{responseMessage.message}}</div>
+</form>

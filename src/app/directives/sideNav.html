@@ -14,6 +14,14 @@
           </div>
         </div>
       </li>
+      <li ng-if="!member">
+        <div class="staff-detail">
+          <div class="staff-info" style="padding-top:0;">
+            <h3>Invite a new member!</h3>
+            <member-invite></member-invite>
+          </div>
+        </div>
+      </li>
       <li ui-sref-active="active">
         <a ui-sref="dashboard">
           <i class="fi-home" style="font-size:2em;padding:0 15px;"></i>

@@ -1,5 +1,16 @@
-﻿<ul ng-repeat="item in itemslist" style="list-style-type:none;">
-  <li>
-    <a ui-sref="item({ memberId: member.id, itemId: item.id })">{{item.name}}</a>
-  </li>
-</ul>
+﻿<table>
+  <tr ng-repeat="item in itemslist" style="list-style-type:none;">
+    <td style="padding:0;">
+      <div class='stoplight' ng-class="(!item.color_code || item.color_code == 'green') ? 'stoplight-green' : ''" ng-click="updateColorCode(item, 'green', $index)"></div>
+    </td>
+    <td style="padding:0;">
+      <div class='stoplight' ng-class="(!item.color_code || item.color_code == 'yellow') ? 'stoplight-yellow' : ''" ng-click="updateColorCode(item, 'yellow', $index)"></div>
+    </td>
+    <td style="padding:0;">
+      <div class='stoplight' ng-class="(!item.color_code || item.color_code == 'red') ? 'stoplight-red' : ''" ng-click="updateColorCode(item, 'red', $index)"></div>
+    </td>
+    <td>
+      <a ui-sref="item({ memberId: member.id, itemId: item.id })">{{item.name}}</a>
+    </td>
+  </tr>
+</table>

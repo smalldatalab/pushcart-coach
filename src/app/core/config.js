@@ -19,6 +19,7 @@
 
       // Restangular config
       RestangularProvider.setBaseUrl('http://sandbox.gopushcart.com/api/v1');
+      // RestangularProvider.setBaseUrl('http://localhost:8000/api/v1');
       RestangularProvider.setRequestSuffix('.json');
     }
 })();

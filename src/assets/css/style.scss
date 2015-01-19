@@ -741,3 +741,35 @@ input[type="text"] {
         }
 }
 /* end profile item*/
+
+.stoplight {
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  padding: 6px 0 0 0;
+  margin-bottom: 6px;
+  border: 1px solid;
+  background-color: gray;
+  border-color: black;
+  cursor: pointer;
+}
+
+.stoplight-red {
+  background-color: red;
+}
+
+.stoplight-yellow {
+  background-color: yellow;
+}
+
+.stoplight-green {
+  background-color: green;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}

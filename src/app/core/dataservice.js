@@ -17,11 +17,13 @@
       getUsers: getUsers,
       getUsersCount: getUsersCount,
       getUser: getUser,
+      inviteUser: inviteUser,
       getItem: getItem,
       getSwapCategories: getSwapCategories,
       getSwaps: getSwaps,
       createSwap: createSwap,
       createSwapSuggestion: createSwapSuggestion,
+      updateColorCode: updateColorCode,
       getSwapSuggestions: getSwapSuggestions,
       ready: ready
     };
@@ -82,6 +84,20 @@
       }
     }
 
+    function inviteUser (email) {
+      configureRestangular();
+
+      var invite = Restangular.all('memberships').customPOST({email: email}, 'invite')
+                                                    .then(function(invite) {
+                                                      return {message: invite[0], error: false};
+                                                    })
+                                                    .catch(function(message) {
+                                                      return {message: message.data[0], error: true};
+                                                    });
+
+      return $q.when(invite);
+    }
+
     // Items
 
     function getItem(userId, itemId) {
@@ -93,6 +109,23 @@
                   .catch(function(message) {
                     console.log(message);
                   });
+
+      return $q.when(item);
+    }
+
+    function updateColorCode(oldItem, colorCode) {
+      configureRestangular();
+      var item = Restangular.one('users', oldItem.user_id).one('items', oldItem.id)
+
+      item.color_code = colorCode;
+
+      item = item.put()
+              .then(function(item) {
+                return item;
+              })
+              .catch(function(message) {
+                console.log(message);
+              });
 
       return $q.when(item);
     }
