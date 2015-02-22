@@ -34,6 +34,7 @@
                                 grain: 0,
                                 protein: 0,
                                 fat: 0,
+                                prepared_meals: 0,
                                 uncategorized: 0
                               }
 
@@ -58,8 +59,8 @@
                                           data: data,
                                           dateFormat: function (x) { return new Date(x).toString(); },
                                           xkey: 'date',
-                                          ykeys: ['dairy', 'vegetables', 'fruit', 'grain', 'protein', 'fat', 'uncategorized'],
-                                          labels: ['Dairy', 'Vegetables', 'Fruit', 'Grain', 'Protein', 'Fat', 'Uncategorized'],
+                                          ykeys: ['dairy', 'vegetables', 'fruit', 'grain', 'protein', 'fat', 'uncategorized', 'prepared_meals'],
+                                          labels: ['Dairy', 'Vegetables', 'Fruit', 'Grain', 'Protein', 'Fat', 'Uncategorized', 'Prepared Meals'],
                                           events: events,
                                           eventLineColors: ['#ee0c0c'],
                                           pointSize: 2,
