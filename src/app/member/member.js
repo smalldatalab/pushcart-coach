@@ -9,10 +9,11 @@
 
   function MemberController(dataservice, $stateParams, $scope) {
 
+    $scope.swapSuggestions = []; // Turns off the "events" in the timeline, which was broken anyway
+
     activate($stateParams.memberId);
 
     function activate(memberId) {
-      getSwapSuggestions(memberId);
 
       return getMember(memberId).then(function() {
         console.log('Activated Member View');
@@ -24,15 +25,6 @@
         .then(function(data) {
           $scope.member = data;
           return $scope.member;
-        }
-      );
-    }
-
-    function getSwapSuggestions(memberId) {
-      return dataservice.getSwapSuggestions(memberId)
-        .then(function(data) {
-          $scope.swapSuggestions = data;
-          return $scope.swapSuggestions;
         }
       );
     }

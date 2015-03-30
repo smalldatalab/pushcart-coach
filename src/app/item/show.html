@@ -80,20 +80,16 @@
         <div class="custom-panel-body">
           <form name="swapSuggestionForm">
             <label>Swap</label>
-            <select ng-options="swap.id as swap.name for swap in swaps" ng-model="swapSuggestion.swap_id" required>
-            <input type="submit" ng-click="createSwapSuggestion(swapSuggestion)" value="Save" class="button tiny radius coral-bg right"/>
+            <select ng-options="swap.id as swap.name for swap in swaps" ng-model="swapId" required>
+            <input type="submit" ng-click="createSwapSuggestion(swapId)" value="Save" class="button tiny radius coral-bg right"/>
           </form>
           <div class="clearfix"></div>
         </div>
       </div>
 
-      <div class="large-12 columns" ng-if="item.swaps.length">
-        <h5>Swaps Suggested</h5>
-        <ul>
-          <li ng-repeat="swap in item.swaps">
-            {{swap.name}}
-          </li>
-        <ul>
+      <div class="large-12 columns" ng-if="item.swap">
+        <h5>Swap Suggested</h5>
+        <p>{{item.swap.name}}</p>
       </div>
 
     </div>

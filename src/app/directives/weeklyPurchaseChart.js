@@ -9,7 +9,7 @@
     var directive = {
                       restrict: 'E',
                       template: '<div></div>',
-                      scope: { 
+                      scope: {
                                 purchases: '=',
                                 suggestions: '='
                               },
@@ -44,7 +44,7 @@
                                 // servings = item.nf_servings_per_container * item.quantity;
                                 tuple[item.filtered_category] += (item.nutritional_data.servings_per_container * item.quantity);
                               }
-                              
+
                               data.push(tuple);
                             }
 

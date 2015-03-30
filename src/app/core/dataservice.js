@@ -24,7 +24,6 @@
       createSwap: createSwap,
       createSwapSuggestion: createSwapSuggestion,
       updateColorCode: updateColorCode,
-      getSwapSuggestions: getSwapSuggestions,
       ready: ready
     };
 
@@ -155,7 +154,7 @@
                       console.log(message);
                     });
 
-      return $q.when(swap);     
+      return $q.when(swap);
     }
 
     function getSwapCategories() {
@@ -171,30 +170,21 @@
       return $q.when(swapCategories);
     }
 
-    function createSwapSuggestion(memberId, newSwapSuggestion) {
+    function createSwapSuggestion(userId, item, swapId) {
       configureRestangular();
-      var swapSuggestion = Restangular.one('users', memberId).all('swap_suggestions').post(newSwapSuggestion)
-                            .then(function(swapSuggestion) {
-                              return swapSuggestion;
-                            })
-                            .catch(function(message) {
-                              console.log(message);
-                            });
+      var item = Restangular.one('users', userId).one('items', item.id)
 
-      return $q.when(swapSuggestion);     
-    }
+      item.swap_id = swapId;
 
-    function getSwapSuggestions(memberId) {
-      configureRestangular();
-      var swapSuggestions = Restangular.one('users', memberId).getList('swap_suggestions')
-                              .then(function(swapSuggestions) {
-                                return swapSuggestions;
-                              })
-                              .catch(function(message) {
-                                console.log(message);
-                              });
+      var updatedItem = item.put()
+                          .then(function(updatedItem) {
+                            return updatedItem;
+                          })
+                          .catch(function(message) {
+                            console.log(message);
+                          });
 
-      return $q.when(swapSuggestions);
+      return $q.when(updatedItem);
     }
 
     // Configuration

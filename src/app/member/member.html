@@ -9,6 +9,7 @@
         </div>
         <div class="custom-panel-body">
           <weekly-purchase-chart purchases="member.purchases" suggestions="swapSuggestions"></weekly-purchase-chart>
+          <!-- <weekly-purchase-chart purchases="member.purchases"></weekly-purchase-chart> -->
         </div>
       </div>
     </div>
@@ -41,7 +42,7 @@
       <div class="stats border">
         <div class="left">
           Swaps Suggested
-          <h3>{{ swapSuggestions.length }}</h3>
+          <h3>{{ member.swaps_count }}</h3>
         </div>
         <i class="fi-like right sales"></i>
         <div class="clearfix"></div>

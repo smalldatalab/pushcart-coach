@@ -18,7 +18,7 @@
     }
 
     function setItemScopes() {
-      $scope.swapSuggestion = {};
+      $scope.swapId = null;
       $scope.createSwapSuggestion = createSwapSuggestion;
 
       dataservice.getSwaps()
@@ -36,13 +36,11 @@
       );
     }
 
-    function createSwapSuggestion(swapSuggestion) {
-      swapSuggestion.item_id = $scope.item.id;
-
-      dataservice.createSwapSuggestion($stateParams.memberId, swapSuggestion)
+    function createSwapSuggestion(swapId) {
+      dataservice.createSwapSuggestion($stateParams.memberId, $scope.item, swapId)
         .then(function(data) {
           console.log(data);
-          $scope.item = data.item;
+          $scope.item = data;
           return $scope.item;
         }
       );
